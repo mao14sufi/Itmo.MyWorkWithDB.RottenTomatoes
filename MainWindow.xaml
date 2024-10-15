@@ -1,0 +1,52 @@
+﻿<Window x:Class="Itmo.MyWorkWithDB.RottenTomatoes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Itmo.MyWorkWithDB.RottenTomatoes"
+        mc:Ignorable="d"
+        Title="MoviesApp" Height="600" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="500*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lstMainPage" Grid.Column="0" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}"  Margin="0,0,0,0" MouseDoubleClick="lstMainPage_MouseDoubleClick"   BorderBrush="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"/>
+        <ListBox x:Name="lstCastPage" Grid.Column="3" Grid.Row ="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,0"  BorderBrush="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" Background="{x:Null}"/>
+        <TextBox x:Name="txtDescriptionBox" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Description"   BorderBrush="{x:Null}"    />
+        <Button x:Name="btnReview" Grid.Column="4" Grid.Row="0" Content="Send" HorizontalAlignment="Right" Margin="0,0,0,28" VerticalAlignment="Bottom" Click="btnReview_Click" Height="28" Grid.RowSpan="2" Width="88" Visibility="Hidden"  />
+        <Button x:Name="btnTypeReview" Grid.Column="0" Grid.Row="0" Content="Write review" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="btnTypeReview_Click" Height="88" Margin="0,0,5,0" Width="88" IsEnabled="False"  />
+        <ListBox x:Name="lstReview" Grid.Column="4" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"/>
+        <Label x:Name="lblMainPage" Content="Movies" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+        <Label x:Name="lblCastPage" Content="Cast" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+        <Label x:Name="lblReviewPage" Content="Review" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+        <ListBox x:Name="lstIMBD" Grid.Column="1" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox x:Name="lstRottenTomatoes" Grid.Column="2" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="btnIMDB" Grid.Column="1" Grid.Row="1"   Content="IMBD" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5" Opacity="0.99" BorderBrush="{x:Null}" Background="{x:Null}"  />
+        <Button x:Name="btnRottenTomatoes" Grid.Column="2" Grid.Row="1"  Content="RottenTomatoes" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Button x:Name="btnSortUpTomatoes" Content="SortUp" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="20" Width="68" Grid.Column="2" Margin="10,5,0,0" Click="btnSortUpTomatoes_Click"/>
+        <Button x:Name="btnSortDownTomatoes" Content="SortDown" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="68"  Grid.Column="2" Margin="10,31,0,0" Click="btnSortDownTomatoes_Click" RenderTransformOrigin="0.696,0.453" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.208"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="btnSortUpIMBD" Content="SortUP" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="20" Width="58" Grid.Column="1" Margin="0,5,0,0" Click="btnSortUpIMBD_Click"/>
+        <Button x:Name="btnSortDownIMBD" Content="SortDown" HorizontalAlignment="Center"  VerticalAlignment="Top"  Height="22" Width="58" Grid.Column="1" Margin="0,28,0,0" Click="btnSortDownIMBD_Click" RenderTransformOrigin="0.431,-3.135"/>
+        <Button x:Name="btnNextPage" Content="NextPage" HorizontalAlignment="Center"  VerticalAlignment="Center"  Height="50" Width="80" Click="btnNextPage_Click"/>
+        <Button x:Name="btnPrevpage" Content="PrevPage" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="50" Width="80" Margin="24,20,0,0" Click="btnPrevpage_Click"/>
+    </Grid>
+</Window>
